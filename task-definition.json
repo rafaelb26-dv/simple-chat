@@ -9,9 +9,9 @@
       "entryPoint": null,
       "portMappings": [
         {
-          "hostPort": 3000,
+          "hostPort": 80,
           "protocol": "tcp",
-          "containerPort": 3000
+          "containerPort": 80
         }
       ],
       "command": null,
@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "462211226139.dkr.ecr.us-east-1.amazonaws.com/ezops-teste",
+      "image": "462211226139.dkr.ecr.us-east-1.amazonaws.com/rafael-ezops",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -46,7 +46,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "simple-chat"
+      "name": "simplechat-ezops"
     }
   ],
   "placementConstraints": [],
@@ -56,8 +56,8 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:462211226139:task-definition/DeployContainerAzops:1",
-  "family": "DeployContainerAzops",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:462211226139:task-definition/DeployContainerChat:1",
+  "family": "DeployContainerChat",
   "requiresAttributes": [
     {
       "targetId": null,

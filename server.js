@@ -44,6 +44,6 @@ io.on('connection', () =>{
 // mongoose.connect(dbUrl ,{useMongoClient : true} ,(err) => {
 //   console.log('mongodb connected',err);
 // })
-var server = http.listen(80, () => {
+var server = http.listen(8080, () => {
   console.log('server is running on port', server.address().port);
 });

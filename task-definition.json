@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "462211226139.dkr.ecr.us-east-1.amazonaws.com/rafael-ezops",
+      "image": "462211226139.dkr.ecr.us-east-1.amazonaws.com/ezops-chat",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -46,7 +46,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "simplechat-ezops"
+      "name": "ezopscontainer"
     }
   ],
   "placementConstraints": [],
@@ -56,8 +56,8 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:462211226139:task-definition/DeployContainerChat:1",
-  "family": "DeployContainerChat",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:462211226139:task-definition/ezops:1",
+  "family": "ezops",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -72,7 +72,7 @@
   ],
   "networkMode": null,
   "runtimePlatform": null,
-  "cpu": "1024",
+  "cpu": "3072",
   "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,

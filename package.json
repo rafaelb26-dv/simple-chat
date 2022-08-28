@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker-image": "docker build --no-cache -t $npm_package_name:$npm_package_version .",
-    "docker-container": "docker run --name $npm_package_name -p 80:80 -d $npm_package_name:$npm_package_version"
+
   },
   "author": "Rafael B. De Sousa",
   "license": "ISC",

@@ -39,12 +39,12 @@ function addMessages(message){
       <p>  ${message.message} </p>`)
    }
 function getMessages(){
-  $.get('http://localhost:80/messages', (data) => {
+  $.get('http://localhost:8080/messages', (data) => {
    data.forEach(addMessages);
    })
  }
 function sendMessage(message){
-   $.post('http://localhost:80/messages', message)
+   $.post('http://localhost:8080/messages', message)
  }
 </script>
 </body>

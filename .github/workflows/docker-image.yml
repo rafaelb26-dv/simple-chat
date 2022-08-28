@@ -27,7 +27,7 @@ jobs:
       run: docker run -t -d $REPOSITORY_NAME
 
   post_build:
-    runs-on: docker
+    runs-on: ubuntu-latest
 
     steps:
     - name: puch to a dockerhub

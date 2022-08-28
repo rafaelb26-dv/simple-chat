@@ -9,7 +9,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
-var dbUrl = process.env.MONGODB;
+var dbUrl = mongodb+srv://rafael:12345@cluster0.qu6w1ws.mongodb.net/?retryWrites=true&w=majority
 
 mongoose.connect(dbUrl, {}).then(() => console.log("Mongoose connected"));
 

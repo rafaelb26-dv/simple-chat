@@ -23,4 +23,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . -t simplechat
     - name: Create container
-      run: docker run -t simplechat -p 80:8080
+      run: docker run -t simplechat

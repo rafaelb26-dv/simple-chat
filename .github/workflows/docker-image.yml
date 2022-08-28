@@ -21,6 +21,16 @@ jobs:
       run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . -t simplechat
+      run: docker build . -t $REPOSITORY_NAME --tag $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+
     - name: Create container
-      run: docker run -t -d simplechat
+      run: docker run -t -d $REPOSITORY_NAME
+
+  post_build:
+    runs-on: docker
+
+    steps:
+    - name: puch to a dockerhub
+      run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+
+

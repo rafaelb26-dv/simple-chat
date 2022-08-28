@@ -3,8 +3,8 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      docker: 18
-      nodejs: 16
+      docker: 10.10.16
+      nodejs: 18.0.0
   pre_build:
     commands:
       - echo Installing dependencies

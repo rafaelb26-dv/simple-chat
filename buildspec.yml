@@ -1,4 +1,5 @@
 version: 0.2
+
 phases:
   install:
     runtime-versions:
@@ -7,6 +8,7 @@ phases:
   pre_build:
     commands:
       - echo Installing dependencies
+      - npm install
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
   build:
     commands:
@@ -20,6 +22,5 @@ phases:
         - echo pushing docker image
         - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
         - printf '[{"name":%s","imageUri":"%s"}]' $CONTAINER_NAME $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.js
-
     artifacts:
       files: imagedefinitions.json

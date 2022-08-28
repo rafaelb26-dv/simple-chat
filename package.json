@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker-image": "docker build --no-cache -t $npm_package_name:$npm_package_version .", //create image
-    "docker-container": "docker run --name $npm_package_name -p 80:8080 -d $npm_package_name:$npm_package_version" //create container
+    "docker-image": "docker build --no-cache -t $npm_package_name:$npm_package_version .",
+    "docker-container": "docker run --name $npm_package_name -p 80:8080 -d $npm_package_name:$npm_package_version"
   },
   "author": "Rafael B. De Sousa",
   "license": "ISC",

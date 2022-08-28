@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: puch to a dockerhub
-      run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+    - name: push to a dockerhub
+      run: docker push rafaelbdesousa/simplechat
 
 

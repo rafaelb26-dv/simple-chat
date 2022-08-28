@@ -26,11 +26,7 @@ jobs:
     - name: Create container
       run: docker run -t -d $REPOSITORY_NAME
 
-  post_build:
-    runs-on: ubuntu-latest
-
-    steps:
     - name: push to a dockerhub
-      run: docker push rafaelbdesousa/simplechat
+      run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
 
 

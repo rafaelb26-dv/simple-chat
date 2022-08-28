@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - name: docker login
-      run: docker login -u $DOCKER_HUB_USERNAME -P $DOCKER_HUB_ACCESS_TOKEN
+      run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . -t simplechat:1.0

@@ -28,5 +28,3 @@ jobs:
 
     - name: push to a dockerhub
       run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
-
-

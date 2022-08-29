@@ -1,12 +1,12 @@
 {
   "name": "simple-chat",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "a simple chat aplication",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker-image": "docker build --no-cache -t $npm_package_name:$npm_package_version .",
-    "docker-container": "docker run --name $npm_package_name -p 3000:3000 -d $npm_package_name:$npm_package_version"
+    "docker-image": "docker build --no-cache -t $npm_package_name .",
+    "docker-container": "docker run -t -p 3000:3000 -d $npm_package_name"
   },
   "author": "Rafael B. De Sousa",
   "license": "ISC",

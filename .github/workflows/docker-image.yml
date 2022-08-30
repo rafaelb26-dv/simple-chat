@@ -18,17 +18,14 @@ jobs:
 
   build:
 
+
     runs-on: ubuntu-latest
 
     steps:
-    - name: add private key to connect a EC2 Machine
-      run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-    - name: connect a machine
-      run: ssh -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME
-
+    - uses: actions/checkout@v3
     - name: docker login
       run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN
-    - uses: actions/checkout@v3
+
     - name: Build the Docker image
       run: docker build . -t $REPOSITORY_NAME --tag $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
 
@@ -37,5 +34,18 @@ jobs:
 
     - name: push to a dockerhub
       run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+
+  deploy:
+      needs: build
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v3
+        - name: deploy in EC2 machine
+          run: |
+            echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+            ssh -o StrictHostKeyChecking=no -i private_key ${USERNAME}@${HOSTNAME}
+
+
 
 

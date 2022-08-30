@@ -37,4 +37,4 @@ jobs:
       run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
 
     - name: connect to a machine
-      run: ssh -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME
+      run: ssh -T -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME

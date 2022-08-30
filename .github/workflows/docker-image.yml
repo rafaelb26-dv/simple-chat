@@ -34,7 +34,7 @@ jobs:
       run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
 
     - name: add private key to connect a EC2 Machine
-      run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key &&
+      run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
            ssh -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME '
 
            cd /home/${USERNAME} '

@@ -35,5 +35,5 @@ jobs:
 
     - name: connect to a machine using ssh
       run: |
-        echo $PRIVATE_KEY > private_key && chmod 600 private_key 
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key //
         ssh -i private_key ${USERNAME}@${HOSTNAME}

@@ -37,4 +37,4 @@ jobs:
       run: echo $PRIVATE_KEY > key.pem && chmod +600 key.pem
 
     - name: connect  machine
-      run: ssh -i 'key.pem' ubuntu@ec2-3-82-38-13.compute-1.amazonaws.co
+      run: ssh -i 'key.pem' ubuntu@ec2-3-82-38-13.compute-1.amazonaws.com

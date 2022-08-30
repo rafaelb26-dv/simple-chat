@@ -35,6 +35,5 @@ jobs:
 
     - name: add private key to connect a EC2 Machine
       run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-           ssh -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME '
-
-           cd /home/${USERNAME} '
+    - name: connect a machine
+      run: ssh -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME

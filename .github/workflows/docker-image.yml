@@ -37,4 +37,4 @@ jobs:
       run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key &&
            ssh -i private_key $USERNAME@$HOSTNAME && '
            cd /home/ubuntu &&
-           mkdir teste
+           mkdir teste '

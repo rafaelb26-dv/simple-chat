@@ -34,6 +34,4 @@ jobs:
       run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
 
     - name: connect to a machine using ssh
-      run: |
-        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        ssh -T -i  private_key ${USERNAME}@${HOSTNAME}
+      run: ssh -i ${{PRIVATE_KEY}} ubuntu@ec2-3-82-38-13.compute-1.amazonaws.com

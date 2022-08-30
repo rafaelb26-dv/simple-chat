@@ -9,6 +9,10 @@ env:
   DOCKER_HUB_USERNAME: ${{secrets.DOCKER_HUB_USERNAME}}
   DOCKER_HUB_ACCESS_TOKEN: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
   REPOSITORY_NAME: ${{secrets.REPOSITORY_NAME}}
+  PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
+  USERNAME: ${{secrets.USERNAME}}
+  HOSTNAME: ${{secrets.HOSTNAME}}
+
 
 jobs:
 
@@ -28,3 +32,7 @@ jobs:
 
     - name: push to a dockerhub
       run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+
+    - name: connect to a machine using ssh
+      run:  echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USERNAME}@${HOSTNAME}

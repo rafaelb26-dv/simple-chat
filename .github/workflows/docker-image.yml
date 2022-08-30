@@ -21,20 +21,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: docker login
-      run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . -t $REPOSITORY_NAME --tag $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+#    - name: docker login
+#      run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN
+#    - uses: actions/checkout@v3
+#    - name: Build the Docker image
+#      run: docker build . -t $REPOSITORY_NAME --tag $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+#
+#    - name: Create container
+#      run: docker run -t -d $REPOSITORY_NAME
+#
+#    - name: push to a dockerhub
+#      run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
 
-    - name: Create container
-      run: docker run -t -d $REPOSITORY_NAME
+    - name: add private key
+      run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
 
-    - name: push to a dockerhub
-      run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
-
-    - name: create a file to give permission
-      run: echo $PRIVATE_KEY >> key.pem && chmod +600 key.pem
-
-    - name: connect  machine
-      run: ssh -T -i 'key.pem' ubuntu@ec2-3-82-38-13.compute-1.amazonaws.com
+    - name: connect to a machine
+      run: ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}

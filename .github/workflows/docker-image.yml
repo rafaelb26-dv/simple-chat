@@ -21,18 +21,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-#    - name: docker login
-#      run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN
-#    - uses: actions/checkout@v3
-#    - name: Build the Docker image
-#      run: docker build . -t $REPOSITORY_NAME --tag $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
-#
-#    - name: Create container
-#      run: docker run -t -d $REPOSITORY_NAME
-#
-#    - name: push to a dockerhub
-#      run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+    - name: docker login
+      run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . -t $REPOSITORY_NAME --tag $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
 
-    - name: add private key
+    - name: Create container
+      run: docker run -t -d $REPOSITORY_NAME
+
+    - name: push to a dockerhub
+      run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
+
+    - name: add private key to connect a EC2 Machine
       run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key &&
            ssh -T -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME
+
+    - name: update container
+      run: docker pull $DOCKER_HUB_USERNAME/$REPOSITORY_NAME &&
+           docker run --rm -d -p 3000:3000 rafaelbdesousa/simplechat
+
+
+

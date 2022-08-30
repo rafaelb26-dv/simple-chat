@@ -21,6 +21,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: add private key to connect a EC2 Machine
+      run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+    - name: connect a machine
+      run: ssh -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME
+
     - name: docker login
       run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN
     - uses: actions/checkout@v3
@@ -33,10 +38,4 @@ jobs:
     - name: push to a dockerhub
       run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
 
-    - name: add private key to connect a EC2 Machine
-      run: echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-    - name: connect a machine
-      run: ssh -o StrictHostKeyChecking=no -i private_key $USERNAME@$HOSTNAME
 
-    - name: create a directory
-      run: touch text.txt

@@ -45,7 +45,10 @@ jobs:
           run: |
             echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
             ssh -o StrictHostKeyChecking=no -i private_key ${USERNAME}@${HOSTNAME} '
-            mkdir pasta '
+            
+            ## run container update
+            docker pull rafaelbdesousa/simplechat:latest
+            docker run --rm -d -p 3000:3000 rafaelbdesousa/simplechat '
             
 
 

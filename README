@@ -1,9 +1,7 @@
 Build this project using docker
 
-Run this commands:
+Run this command:
 
-npm run docker-image ##create a docker image
-
-npm run docker-container ##create a container
+sh runcontainer.sh
 
 

@@ -47,8 +47,8 @@ jobs:
             ssh -o StrictHostKeyChecking=no -i private_key ${USERNAME}@${HOSTNAME} '
             
             ## run container update
-            docker pull rafaelbdesousa/simplechat:latest
-            docker run --rm -d -p 3000:3000 rafaelbdesousa/simplechat '
+            docker pull $DOCKER_HUB_USERNAME/$REPOSITORY_NAME:latest
+            docker run --rm -d -p 3000:3000 $DOCKER_HUB_USERNAME/$REPOSITORY_NAME '
             
 
 

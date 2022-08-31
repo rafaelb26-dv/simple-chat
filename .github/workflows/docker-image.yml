@@ -44,7 +44,7 @@ jobs:
         - name: deploy in EC2 machine
           run: |
             echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-            ssh -o StrictHostKeyChecking=no -i private_key ${USERNAME}@${HOSTNAME} '
+            ssh -i private_key ${USERNAME}@${HOSTNAME} '
             
             ## run container update
             docker pull rafaelbdesousa/simplechat:latest

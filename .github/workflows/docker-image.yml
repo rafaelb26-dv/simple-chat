@@ -48,8 +48,8 @@ jobs:
             
             ## run container update
             docker pull ${DOCKER_HUB_USERNAME}/${REPOSITORY_NAME}:latest
-            docker rm -f $(docker ps -aq)                 ##USING ONLY IN LOCAL DEVELOPMENT
-            docker run -d -p 3000:3000 ${DOCKER_HUB_USERNAME}/${REPOSITORY_NAME} '
+            docker rm -f $(docker ps -aq) '                ##USING ONLY IN LOCAL DEVELOPMENT
+#            docker run -d -p 3000:3000 ${DOCKER_HUB_USERNAME}/${REPOSITORY_NAME} '
 
             
 

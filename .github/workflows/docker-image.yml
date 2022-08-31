@@ -48,7 +48,7 @@ jobs:
             
             ## run container update
             docker pull rafaelbdesousa/simplechat:latest
-            docker rm -f $(docker ps -aq)                 ##USING ONLY IN DEVELOPMENT
+            docker rm -f $(docker ps -aq)                 ##USING ONLY IN LOCAL DEVELOPMENT
             docker run -d -p 3000:3000 rafaelbdesousa/simplechat '
 
             

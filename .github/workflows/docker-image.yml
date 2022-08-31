@@ -48,7 +48,7 @@ jobs:
             
             ## run container update
              cd /home/${USERNAME}/ezops-test-rafael
-             sh runcontainer.sh
+             sh runcontainer.sh '
 #            docker pull rafaelbdesousa/simplechat:latest
 #            docker rm -f $(docker ps -aq)                 ##USING ONLY IN DEVELOPMENT
 #            docker run -d -p 3000:3000 rafaelbdesousa/simplechat '

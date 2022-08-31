@@ -30,7 +30,7 @@ jobs:
       run: docker build . -t $REPOSITORY_NAME --tag $DOCKER_HUB_USERNAME/$REPOSITORY_NAME
 
     - name: Create container
-      run: docker run -t -d $REPOSITORY_NAME
+      run: docker run -t -d --name simplechat $REPOSITORY_NAME
 
     - name: push to a dockerhub
       run: docker push $DOCKER_HUB_USERNAME/$REPOSITORY_NAME

@@ -47,7 +47,7 @@ jobs:
             ssh -o StrictHostKeyChecking=no -i private_key ${USERNAME}@${HOSTNAME} '
             
             ## run container update
-             cd /home/${USERNAME}/ezops-test-rafael
+             cd /home/$USERNAME/ezops-test-rafael
              sh runcontainer.sh '
 #            docker pull rafaelbdesousa/simplechat:latest
 #            docker rm -f $(docker ps -aq)                 ##USING ONLY IN DEVELOPMENT
